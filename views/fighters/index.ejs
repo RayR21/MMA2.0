@@ -1,0 +1,29 @@
+<table id="list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Upcoming Fight</th>
+        <th>Rating</th>
+        <th>Wins</th>
+        <th>Losses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% fighters.forEach(function(fighter) { %>
+        <tr>
+          <td><%= fighter.name %></td>
+          <td><%= fighter.upcomingFight %></td>
+          <td><%= fighter.rating %></td>
+          <td><%= fighter.wins %></td>
+          <td><%= fighter.losses %></td>
+          <td><a href="/fighters/<%= fighter._id %>">DETAILS</a></td>
+          <!-- <td><a href="/fighters/<%=fighter._id %>">REMOVE</a> </td> -->
+          <td>
+            <form action="/fighters/delete/<%= fighter._id %>?_method=DELETE" method="POST">
+                <button type="submit">delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
