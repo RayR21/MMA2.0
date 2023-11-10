@@ -17,7 +17,7 @@ router.get('/', fightersCtrl.index)
 router.get('/:id', fightersCtrl.show)
 
 //Delete Fighter by /:id
-router.delete('/delete/:id', fightersCtrl.delete)
+router.delete('/:id', fightersCtrl.delete)
 
 
 
