@@ -19,6 +19,11 @@ router.get('/:id', fightersCtrl.show)
 //Delete Fighter by /:id
 router.delete('/:id', fightersCtrl.delete)
 
+//GET edit Form
+router.get('/edit/:id', fightersCtrl.edit)
+
+//PUT update
+router.put('/:id', fightersCtrl.update)
 
 
 module.exports = router;

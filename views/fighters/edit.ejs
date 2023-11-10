@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<h2>Enter a New Fighter</h2>
+<form action="/fighters/<%= fighter._id %>?_method=PUT" method="POST">
+  <label>Name:
+    <input type="text" name="name" value="<%= fighter.name %>">
+  </label><br>
+  <label>Fight Date:
+    <input class="upcomingFight" type="datetime-local" name="upcomingFight"> 
+  </label><br>
+  <label> Rating
+    <select class='rating' name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label><br>
+  <label> wins:
+    <input type="number" name="wins" value="<%= fighter.wins %>">
+  </label><br>
+  <label>losses:
+    <input type="number" name="losses" value="<%= fighter.losses %>" >
+  </label><br>
+  <button type="submit">update fighters</button>
+</form>
+<script>
+    const upcomingFight = document.querySelector('.upcomingFight')
+    const rating = document.querySelector('.rating')
+    upcomingFight.value = fighter.upcomingFight
+    rating.value =fighter.rating
+</script>
+
+<%- include('../partials/footer') %>

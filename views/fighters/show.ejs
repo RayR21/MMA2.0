@@ -9,6 +9,6 @@
   <div><%= fighter.rating %></div>
   <div> Wins-Losses: </div>
   <div><%= fighter.wins %> - <%= fighter.losses %></div>
- 
+ <div><a href="/fighters/edit/<%=fighter._id%>">update</a></div>
 </section>
 <%- include('../partials/footer') %>

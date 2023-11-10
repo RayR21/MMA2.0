@@ -6,6 +6,8 @@
         <th>Rating</th>
         <th>Wins</th>
         <th>Losses</th>
+        <th>Weightclass</th>
+    
       </tr>
     </thead>
     <tbody>
@@ -17,7 +19,11 @@
           <td><%= fighter.wins %></td>
           <td><%= fighter.losses %></td>
           <td><a href="/fighters/<%= fighter._id %>">DETAILS</a></td>
-          <!-- <td><a href="/fighters/<%=fighter._id %>">REMOVE</a> </td> -->
+          <!-- <%for(let i = 0;i <= 3; i++){%>
+            <%if(weightClasses[i].fighters.includes(fighter._id)){%>
+                <td><%=weightClasses[i].name%></td>
+            <%}%>
+          <%}%> -->
           <td>
             <form action="/fighters/<%= fighter._id %>?_method=DELETE" method="POST">
                 <button type="submit">delete</button>
