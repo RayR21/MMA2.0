@@ -14,16 +14,20 @@
       <% fighters.forEach(function(fighter) { %>
         <tr>
           <td><%= fighter.name %></td>
-          <td><%= fighter.upcomingFight %></td>
-          <td><%= fighter.rating %></td>
+          <td><%= fighter.upcomingFight ? fighter.upcomingFight.toDateString() : 'No upcoming fight' %></td>
+         <td><%= fighter.rating %></td>
           <td><%= fighter.wins %></td>
           <td><%= fighter.losses %></td>
+          <% for(let i = 0; i < weightClasses.length; i++) { %>
+            <% weightClasses[i].fighters.forEach(function(f) { %>
+                 <% if (f._id.equals(fighter._id)) { %>
+                      <td><%= weightClasses[i].name %></td>
+                 <% } %>
+            <% }) %>
+       <% } %>
+
           <td><a href="/fighters/<%= fighter._id %>">DETAILS</a></td>
-          <!-- <%for(let i = 0;i <= 3; i++){%>
-            <%if(weightClasses[i].fighters.includes(fighter._id)){%>
-                <td><%=weightClasses[i].name%></td>
-            <%}%>
-          <%}%> -->
+       
           <td>
             <form action="/fighters/<%= fighter._id %>?_method=DELETE" method="POST">
                 <button type="submit">delete</button>
